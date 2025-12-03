@@ -53,16 +53,17 @@ public class CUsuarios extends ConexionMySQL{
         return 0;
     }
 
-    public void agregarUsuario() {
+    public void agregarUsuario(int rol) {
         try {
             String consulta = "INSERT INTO usuarios(usuario, contrasenia, rol) "
-                             + "VALUES (?, ?, 3)";
+                             + "VALUES (?, ?, ?)";
 
             //pedir que retorne las llaves generadas
             try (PreparedStatement ps = conexion.prepareStatement(consulta, Statement.RETURN_GENERATED_KEYS)) {
 
                 ps.setString(1, this.usuario);
                 ps.setString(2, this.contrasenia);
+                ps.setInt(3, rol);
 
                 int filasInsertadas = ps.executeUpdate();
                 System.out.println("Filas insertadas: " + filasInsertadas);

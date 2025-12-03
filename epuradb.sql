@@ -164,7 +164,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (3,'2024-11-30','2024-12-02',4,3),(5,'2024-11-30','2024-12-02',5,3),(6,'2024-11-30','2024-12-03',6,3),(7,'2024-11-30','2024-12-03',2,3),(8,'2024-11-30','2024-12-04',6,3),(9,'2024-12-02','2024-12-10',2,3),(10,'2024-12-02','2024-12-03',8,3),(11,'2024-12-02','2024-12-05',8,3),(12,'2024-12-02','2024-12-10',9,3),(13,'2024-12-02','2024-12-11',8,3),(14,'2024-12-02','2024-12-03',4,3),(15,'2024-12-02','2024-12-05',2,3),(16,'2024-12-03','2024-12-12',9,3),(17,'2025-11-29','2025-11-30',10,1),(18,'2025-11-29','2025-12-01',10,1),(19,'2025-11-29','2025-12-01',9,1);
+INSERT INTO `pedidos` VALUES (3,'2024-11-30','2024-12-02',4,3),(5,'2024-11-30','2024-12-02',5,3),(6,'2024-11-30','2024-12-03',6,3),(7,'2024-11-30','2024-12-03',2,3),(8,'2024-11-30','2024-12-04',6,3),(9,'2024-12-02','2024-12-10',2,3),(10,'2024-12-02','2024-12-03',8,3),(11,'2024-12-02','2024-12-05',8,3),(12,'2024-12-02','2024-12-10',9,3),(13,'2024-12-02','2024-12-11',8,3),(14,'2024-12-02','2024-12-03',4,3),(15,'2024-12-02','2024-12-05',2,3),(16,'2024-12-03','2024-12-12',9,3),(17,'2025-11-29','2025-11-30',10,3),(18,'2025-11-29','2025-12-01',10,3),(19,'2025-11-29','2025-12-01',9,3);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +309,7 @@ CREATE TABLE `usuarios` (
   `contrasenia` varchar(30) DEFAULT NULL,
   `rol` int DEFAULT NULL,
   PRIMARY KEY (`ID_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,7 +318,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'gerardo','gerardo123',NULL),(2,'brayan','brayan123',NULL),(3,'Admin','123',1),(4,'ADMIN2','123456',NULL),(5,'admin1000','1000123',NULL),(6,'gerardo1000','123',NULL),(7,'gerardox2','123',NULL),(8,'gerardox3','123',NULL),(9,'gerardox4','123',NULL),(10,'gerardox5','123',NULL),(11,'gerardox6','123',NULL),(12,'gerardox7','123',NULL),(13,'gerardo5555','5555',3),(14,'ladeaverdis','123',3),(15,'brayan','123',3),(16,'brayanv2','123',3);
+INSERT INTO `usuarios` VALUES (1,'gerardo','gerardo123',NULL),(2,'brayan','brayan123',NULL),(3,'Admin','123',1),(4,'ADMIN2','123456',NULL),(5,'admin1000','1000123',NULL),(6,'gerardo1000','123',2),(7,'gerardox2','123',NULL),(8,'gerardox3','123',NULL),(9,'gerardox4','123',NULL),(10,'gerardox5','123',NULL),(11,'gerardox6','123',NULL),(12,'gerardox7','123',NULL),(13,'gerardo5555','5555',3),(14,'ladeaverdis','123',3),(15,'brayan','123',3),(16,'brayanv2','123',3),(17,'Vendedor1','1234',2),(18,'Vendedor2','123',2);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,4 +339,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-12-01 20:55:39
+-- Dump completed on 2025-12-01 23:28:22

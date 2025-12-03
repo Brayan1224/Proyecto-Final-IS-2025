@@ -81,7 +81,7 @@ public class Configuracion extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(204, 204, 255));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setText("Agregar nuevo usuario");
+        jButton2.setText("Agregar nuevo vendedor");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CrearUsuario newframe = new CrearUsuario();
+        CrearVendedor newframe = new CrearVendedor();
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

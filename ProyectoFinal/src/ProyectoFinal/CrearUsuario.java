@@ -62,7 +62,7 @@ public class CrearUsuario extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Crear Usuario");
+        jLabel4.setText("Crear Cliente");
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,7 +132,7 @@ public class CrearUsuario extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -218,7 +218,7 @@ public class CrearUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Llenar todos los campos");
         } else{
             u.capturarUsuario(user, pass);
-            u.agregarUsuario();
+            u.agregarUsuario(3);
             JOptionPane.showMessageDialog(this, "Usuario Agregado");
             AgregarCliente newframe = new AgregarCliente(u.ID_usuario);
             newframe.setVisible(true);
@@ -232,7 +232,7 @@ public class CrearUsuario extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        Configuracion newframe = new Configuracion();
+        Login newframe = new Login();
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

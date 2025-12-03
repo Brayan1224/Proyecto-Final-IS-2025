@@ -201,7 +201,13 @@ public class Login extends javax.swing.JFrame {
                 MainClientes newframe = new MainClientes(u.ID_usuario);
                 newframe.setVisible(true);
                 this.dispose();
-            }else{
+            }
+            if(u.rol == 2){
+                MainVendedores newframe = new MainVendedores();
+                newframe.setVisible(true);
+                this.dispose();
+            }
+            if(u.rol == 1){
                 Main newframe = new Main();
                 newframe.setVisible(true);
                 this.dispose();
