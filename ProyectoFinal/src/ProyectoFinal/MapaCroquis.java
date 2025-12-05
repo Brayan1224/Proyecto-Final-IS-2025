@@ -37,7 +37,7 @@ public class MapaCroquis extends JPanel {
         crearCroquis();
         
         setPreferredSize(new Dimension(columnas * tamanioCelda, filas * tamanioCelda));
-        setBackground(new Color(34, 139, 34)); // Verde para áreas verdes
+        setBackground(new Color(34, 139, 34)); // áreas verdes
         
         // Interacción con el mouse
         addMouseListener(new MouseAdapter() {
@@ -215,7 +215,7 @@ public class MapaCroquis extends JPanel {
                         frame.dispose(); // Cerrar ventana
                     } else {
                         JOptionPane.showMessageDialog(frame, 
-                            "Casa guardada exitosamente!\n\n" +
+                            "Casa guardada exitosamente! \n\n" +
                             "Número de casa: " + numeroCasa + "\n" +
                             "Posición: [Fila " + sel.getFila() + ", Columna " + sel.getColumna() + "]",
                             "Casa Guardada", 

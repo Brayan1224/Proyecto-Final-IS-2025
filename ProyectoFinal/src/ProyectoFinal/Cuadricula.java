@@ -8,7 +8,6 @@ package ProyectoFinal;
  *
  * @author braya
  */
-// Clase Cuadricula como objeto independiente
 public class Cuadricula {
     private int id;
     private int tipo; // 0 = Camino, 1 = Obstáculo
