@@ -225,9 +225,87 @@ public class RutasVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         // Verificar que haya un camión seleccionado en la tabla
+    int filaSeleccionada = visor.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, 
+            "Por favor, selecciona un camión de la tabla primero", 
+            "Aviso", 
+            JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    // Obtener la placa del camión seleccionado
+    String placaCamion = visor.getValueAt(filaSeleccionada, 0).toString();
+    
+    // Confirmar la entrega
+    int confirmacion = JOptionPane.showConfirmDialog(this,
+        "¿Deseas iniciar la simulación de entrega para el camión " + placaCamion + "?",
+        "Confirmar Entrega",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+    
+    if (confirmacion == JOptionPane.YES_OPTION) {
+        // Obtener ID del camión desde la base de datos
         CRutas r = new CRutas();
-        r.entregarProductos();
-        JOptionPane.showMessageDialog(this, "Productos entregados");
+        int idCamion = -1;
+        
+        try {
+            java.sql.Statement stmt = r.conexion.createStatement();
+            String consulta = "SELECT ID_camion FROM camiones WHERE matricula = '" + placaCamion + "'";
+            java.sql.ResultSet rs = stmt.executeQuery(consulta);
+            
+            if (rs.next()) {
+                idCamion = rs.getInt("ID_camion");
+            }
+            
+            rs.close();
+            stmt.close();
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al obtener ID del camión: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, 
+                "Error al cargar datos del camión", 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (idCamion == -1) {
+            JOptionPane.showMessageDialog(this, 
+                "No se encontró el camión", 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Crear y mostrar el mapa con el camión específico (se ejecuta automáticamente)
+        MapaRutasTiempoReal mapaRutas = new MapaRutasTiempoReal(idCamion, placaCamion);
+        mapaRutas.setVisible(true);
+        
+        // Listener para cuando cierre el mapa
+        final int idCamionFinal = idCamion;
+        mapaRutas.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Preguntar si se completaron las entregas
+                int completado = JOptionPane.showConfirmDialog(RutasVendedor.this,
+                    "¿Se completaron todas las entregas del camión " + placaCamion + "?",
+                    "Confirmar Entregas",
+                    JOptionPane.YES_NO_OPTION);
+                
+                if (completado == JOptionPane.YES_OPTION) {
+                    // Marcar como entregado en la base de datos
+                    CRutas ruta = new CRutas();
+                    ruta.entregarProductos();
+                    JOptionPane.showMessageDialog(RutasVendedor.this, 
+                        "Productos entregados exitosamente");
+                    // Refrescar la tabla
+                    mostrar("");
+                }
+            }
+        });
+    }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
