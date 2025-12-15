@@ -413,7 +413,7 @@ public class ModificarCliente extends javax.swing.JFrame {
             c.actualizar("R_ruta", ID_rutas.get(ruta-1)+"", 2);
             c.actualizar("R_tipo", ID_tipos.get(tipo-1)+"", 2);
             JOptionPane.showMessageDialog(this, "Informacion del cliente modificada");
-            Clientes newframe = new Clientes();
+            Login newframe = new Login();
             newframe.setVisible(true);
             this.dispose();
         }
@@ -428,7 +428,7 @@ public class ModificarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Clientes newframe = new Clientes();
+        Login newframe = new Login();
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

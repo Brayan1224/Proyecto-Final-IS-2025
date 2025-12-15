@@ -285,6 +285,7 @@ public class PedidosVendedor extends javax.swing.JFrame {
         int fila = visor.getSelectedRow();
         if (fila == -1){
             JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            return;
         }else{
             this.id = Integer.parseInt((String)visor.getValueAt(fila, 0));
             System.out.println(this.id);

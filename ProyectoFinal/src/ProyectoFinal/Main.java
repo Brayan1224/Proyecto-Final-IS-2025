@@ -1,5 +1,7 @@
 package ProyectoFinal;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -12,6 +14,16 @@ public class Main extends javax.swing.JFrame{
     
     public Main() {
         initComponents();
+        JButton btnEstadisticas = new JButton("Dashboard");
+        btnEstadisticas.setBackground(new Color(204, 204, 255));
+        btnEstadisticas.setFont(new Font("Century Gothic", Font.BOLD, 12));
+
+        btnEstadisticas.addActionListener(e -> {
+            EstadisticasVentasMes estadisticas = new EstadisticasVentasMes();
+            estadisticas.setVisible(true);
+        });
+        btnEstadisticas.setBounds(10, jPanel1.getHeight() - 60, 100, 35);
+        jPanel1.add(btnEstadisticas);
         this.setLocationRelativeTo(this);
         
         SetImageLabel(jLabel1,"src\\imagenes\\logotip.png");
@@ -22,6 +34,7 @@ public class Main extends javax.swing.JFrame{
         SetImageButton(jButton3,"src\\imagenes\\opcionrepartidores.png");
         SetImageButton(jButton4,"src\\imagenes\\opcionpedido.png");
         SetImageButton(jButton5,"src\\imagenes\\config.png");
+        
     }
 
     @SuppressWarnings("unchecked")
